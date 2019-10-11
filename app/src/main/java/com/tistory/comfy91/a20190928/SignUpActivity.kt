@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -14,7 +16,7 @@ class SignUpActivity : AppCompatActivity() {
     private var edtSignUpId: EditText? = null
     private var edtSignUpPw: EditText? = null
     private var edtSignUpPwCheck: EditText? = null
-    private var btnSignUpSignUp: TextView? = null
+    private var btnSignUpSignUp: Button? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,10 +46,11 @@ class SignUpActivity : AppCompatActivity() {
             }
 
             if(pw.equals(pwCheck)){
-                val intent = Intent()
+                var intent = Intent()
+                Log.d(localClassName, "name: $name id: $id pw: $pw pwCheck: $pwCheck")
                 intent.putExtra("id", id)
                 intent.putExtra("pw", pw)
-                setResult(Activity.RESULT_OK)
+                setResult(Activity.RESULT_OK, intent)
                 finish()
 
             }

@@ -72,7 +72,7 @@ class SignInActivity : AppCompatActivity() {
                 override fun onClick(p0: View?) { // 파라미터는 클린 view의 참조
                     // 회원 가입 페이지로 이동해야한다.
                     val intent = Intent(this@SignInActivity, SignUpActivity::class.java)
-                    startActivity(intent)
+                    startActivityForResult(intent,REQUEST_SIGNUP)
                 }
 
             }
@@ -90,22 +90,20 @@ class SignInActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        when(requestCode){
-            REQUEST_SIGNUP -> when(resultCode){
-                Activity.RESULT_OK-> {
-                    Log.d(localClassName, "Activity Result : Success SignUp")
-                    val id = data?.getStringExtra("id")
-                    val pw = data?.getStringExtra("pw")
-
-                    edtSignInId?.setText(id)
-                    edtSignInPw?.setText(pw)
-
-
-                }
-
-
-
+        if(requestCode == REQUEST_SIGNUP){
+            if(resultCode == Activity.RESULT_OK){
+                Log.d(localClassName, "Activity Result : Success SignUp")
+                val id = data?.getStringExtra("id")
+                val pw = data?.getStringExtra("pw")
+                Log.d(localClassName, "Get Data From Intent: id: $id pw: $pw")
+                edtSignInId?.setText(id)
+                edtSignInPw?.setText(pw)
             }
         }
+
+
+
+
+
     }
 }
