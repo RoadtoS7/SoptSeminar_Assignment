@@ -53,10 +53,10 @@ class SignInActivity : AppCompatActivity() {
             }
 
             // 입력한 ID, 입력한 PW를 가지고 로그인 요청을 한다.
+            // ShowGitFollowerActivity 로 이동
             var response = requestLogin(id, pw)
             if(response){
-                val intent = Intent(this, SignUpActivity::class.java)
-
+                val intent = Intent(this, ShowGitFollowerActivity::class.java)
                 startActivity(intent)
             }
             else{

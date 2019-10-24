@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="230dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ctnRvItem">
+
+    <TextView
+        android:id="@+id/txtRvItemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="36dp"
+        android:layout_marginStart="36dp"
+        />
+
+    <TextView
+        android:id="@+id/txtRvItemDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtRvItemName"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="36dp"/>
+
+    <ImageView
+        android:id="@+id/imgRvItemLanguageColor"
+        android:layout_width="31dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtRvItemDescription"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/txtRvItemLanguage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/imgRvItemLanguageColor"
+        app:layout_constraintTop_toBottomOf="@+id/txtRvItemDescription"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="18dp"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
