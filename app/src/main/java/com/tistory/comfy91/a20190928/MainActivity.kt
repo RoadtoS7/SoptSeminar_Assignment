@@ -2,10 +2,8 @@ package com.tistory.comfy91.a20190928
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.tistory.comfy91.recyclerview.GitRepoAdapter
 import com.tistory.comfy91.recyclerview.GitRepoItem
@@ -14,6 +12,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var rvMainGitRepo: RecyclerView
     lateinit var gitRepoAdapter: GitRepoAdapter
+    lateinit var snapHelper: LinearSnapHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,9 +24,12 @@ class MainActivity : AppCompatActivity() {
         // RecyclerAdapter생성
         gitRepoAdapter = GitRepoAdapter(this)
 
+        // SnapHelper 생성
+        snapHelper = LinearSnapHelper()
+
         // RecyclerView에 RecyclerView 어댑터 설정
         rvMainGitRepo.adapter = gitRepoAdapter
-
+        snapHelper.attachToRecyclerView(rvMainGitRepo)
         // viewHolder 들이 어떻게 배치될 지 설정
         rvMainGitRepo.layoutManager = LinearLayoutManager(this)
 
