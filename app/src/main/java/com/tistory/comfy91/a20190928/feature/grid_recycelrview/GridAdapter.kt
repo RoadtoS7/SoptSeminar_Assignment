@@ -1,9 +1,11 @@
-package com.tistory.comfy91.a20190928
+package com.tistory.comfy91.a20190928.feature.grid_recycelrview
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.tistory.comfy91.a20190928.data.GridItem
+import com.tistory.comfy91.a20190928.R
 
 class GridAdapter(private val context: Context) :RecyclerView.Adapter<GridViewHolder>(){
     var data = listOf<GridItem>()

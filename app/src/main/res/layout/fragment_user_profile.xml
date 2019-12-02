@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".feature.user_profile.UserProfileFragment">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/imgUserProf"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/marryantifan" />
+
+    <TextView
+        android:id="@+id/txtUserProfId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/imgUserProf"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:text="txtUserProfId"/>
+    <TextView
+        android:id="@+id/txtUserProfName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/txtUserProfId"
+        app:layout_constraintTop_toBottomOf="@+id/txtUserProfId"
+        android:text="txtUserProfName"
+        />
+    <TextView
+        android:id="@+id/txtUserProfBio"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="@+id/txtUserProfName"
+        app:layout_constraintTop_toBottomOf="@+id/txtUserProfName"
+        android:text="txtUserProfBIo"
+        />
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

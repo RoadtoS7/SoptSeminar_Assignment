@@ -5,7 +5,8 @@
     android:layout_height="230dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/imgRvItemProfile"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -21,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
-        app:layout_constraintLeft_toRightOf="@+id/imgRvItemProfile"
+        app:layout_constraintStart_toEndOf="@id/imgRvItemProfile"
         app:layout_constraintTop_toTopOf="@id/imgRvItemProfile"
         app:layout_constraintBottom_toTopOf="@+id/txtRvItemName"
         />
@@ -31,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
-        app:layout_constraintLeft_toRightOf="@+id/imgRvItemProfile"
+        app:layout_constraintStart_toStartOf="@id/txtRvItemId"
         app:layout_constraintTop_toBottomOf="@id/txtRvItemId"
         app:layout_constraintBottom_toBottomOf="@id/imgRvItemProfile"/>
 

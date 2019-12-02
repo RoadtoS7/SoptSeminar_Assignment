@@ -1,15 +1,19 @@
-package com.tistory.comfy91.a20190928
+package com.tistory.comfy91.a20190928.feature.sign_up
 
-import android.app.Activity
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_sign_in.*
+import androidx.appcompat.app.AppCompatActivity
+import com.tistory.comfy91.a20190928.R
+
+import com.tistory.comfy91.a20190928.data.ReqSignUpData
+import com.tistory.comfy91.a20190928.data.ResSignUpData
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Call
 
 class SignUpActivity : AppCompatActivity() {
     private var edtSignUpName: EditText? = null
@@ -17,6 +21,9 @@ class SignUpActivity : AppCompatActivity() {
     private var edtSignUpPw: EditText? = null
     private var edtSignUpPwCheck: EditText? = null
     private var btnSignUpSignUp: Button? = null
+    private var edtSignUpPhone: EditText? = null
+    private val TAG = SignUpActivity::class.java.simpleName
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,12 +39,14 @@ class SignUpActivity : AppCompatActivity() {
         edtSignUpPw = findViewById(R.id.edtSignUpPw)
         edtSignUpPwCheck = findViewById(R.id.edtSignUpPwCheck)
         btnSignUpSignUp = findViewById(R.id.btnSignUpSignUp)
+        edtSignUpPhone = findViewById(R.id.edtSignUpPhone)
 
         btnSignUpSignUp?.setOnClickListener {
             val name = edtSignUpName?.text.toString()
             val id = edtSignUpId?.text.toString()
             val pw = edtSignUpPw?.text.toString()
             val pwCheck = edtSignUpPwCheck?.text.toString()
+            val phoneNum = edtSignUpPhone?.text.toString()
 
             if(name.isEmpty() || id.isEmpty()
                 || pw.isEmpty() || pwCheck.isEmpty()){
@@ -46,12 +55,14 @@ class SignUpActivity : AppCompatActivity() {
             }
 
             if(pw.equals(pwCheck)){
-                var intent = Intent()
-                Log.d(localClassName, "name: $name id: $id pw: $pw pwCheck: $pwCheck")
-                intent.putExtra("id", id)
-                intent.putExtra("pw", pw)
-                setResult(Activity.RESULT_OK, intent)
-                finish()
+
+
+//                var intent = Intent()
+//                Log.d(localClassName, "name: $name id: $id pw: $pw pwCheck: $pwCheck")
+//                intent.putExtra("id", id)
+//                intent.putExtra("pw", pw)
+//                setResult(Activity.RESULT_OK, intent)
+//                finish()
 
             }
 

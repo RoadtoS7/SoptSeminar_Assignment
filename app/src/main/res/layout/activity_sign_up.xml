@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUpActivity">
+    tools:context=".feature.sign_up.SignUpActivity">
 
 
     <EditText
@@ -53,6 +53,17 @@
         android:hint="password check"
         app:layout_constraintStart_toStartOf="@+id/edtSignUpPw"
         app:layout_constraintTop_toBottomOf="@+id/edtSignUpPw" />
+
+    <EditText
+        android:id="@+id/edtSignUpPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Phone Number"
+        app:layout_constraintStart_toStartOf="@+id/edtSignUpPwCheck"
+        app:layout_constraintTop_toBottomOf="@+id/edtSignUpPwCheck" />
 
     <Button
         android:id="@+id/btnSignUpSignUp"

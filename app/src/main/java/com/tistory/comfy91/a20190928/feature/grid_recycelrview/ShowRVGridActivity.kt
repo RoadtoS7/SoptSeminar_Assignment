@@ -1,10 +1,11 @@
-package com.tistory.comfy91.a20190928
+package com.tistory.comfy91.a20190928.feature.grid_recycelrview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.GridLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.tistory.comfy91.a20190928.R
+import com.tistory.comfy91.a20190928.data.GridItem
 
 class ShowRVGridActivity : AppCompatActivity() {
     lateinit var rvShowRVGrid: RecyclerView
@@ -21,62 +22,62 @@ class ShowRVGridActivity : AppCompatActivity() {
 
         rvGridAdapter.data = listOf(
             GridItem(
-                img  ="yoomee",
+                img = "yoomee",
                 title = "유미의 세포들",
                 starScore = "9.96",
-                author =  "이동건"
+                author = "이동건"
             ),
             GridItem(
-                img  ="bokhak",
+                img = "bokhak",
                 title = "복학왕",
                 starScore = "9.20",
-                author =  "기안84"
+                author = "기안84"
             ),
             GridItem(
-                img  ="yeonnome",
+                img = "yeonnome",
                 title = "연놈",
                 starScore = "9.92",
-                author =  "상하"
+                author = "상하"
             ),
 
 
             GridItem(
-                img  ="wordlismoney",
+                img = "wordlismoney",
                 title = "세상은 돈과 권련",
                 starScore = "9.87",
-                author =  "한동우/이도희"
+                author = "한동우/이도희"
             ),
             GridItem(
-                img  ="helper",
+                img = "helper",
                 title = "헬퍼 2: 킬베로스",
                 starScore = "9.91",
-                author =  "삭"
+                author = "삭"
             ),
             GridItem(
-                img  ="itsmine",
+                img = "itsmine",
                 title = "이츠마인",
                 starScore = "9.97",
-                author =  "럭스"
+                author = "럭스"
             )
 
             ,
             GridItem(
-                img  ="marryantifan",
+                img = "marryantifan",
                 title = "그래서 나는 안티팬과 결혼했다.",
                 starScore = "9.94",
-                author =  "채림"
+                author = "채림"
             ),
             GridItem(
-                img  ="godmulju",
+                img = "godmulju",
                 title = "갓물주",
                 starScore = "9.92",
-                author =  "HD3"
+                author = "HD3"
             ),
             GridItem(
-                img  ="gaejanwu",
+                img = "gaejanwu",
                 title = "개장수",
                 starScore = "9.98",
-                author =  "김규삼"
+                author = "김규삼"
             )
 
 

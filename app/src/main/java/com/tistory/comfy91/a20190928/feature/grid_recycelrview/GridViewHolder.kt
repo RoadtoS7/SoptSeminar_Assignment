@@ -1,12 +1,13 @@
-package com.tistory.comfy91.a20190928
+package com.tistory.comfy91.a20190928.feature.grid_recycelrview
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import android.text.TextUtils
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.tistory.comfy91.a20190928.data.GridItem
+import com.tistory.comfy91.a20190928.R
 
 class GridViewHolder(view: View): RecyclerView.ViewHolder(view){
     val imgRvItemPhoto: ImageView? = view.findViewById(R.id.imgRvItemProfile)

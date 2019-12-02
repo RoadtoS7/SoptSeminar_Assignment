@@ -18,15 +18,16 @@
 
     <TextView
         android:id="@+id/txtRvItemDescription"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtRvItemName"
         android:layout_marginTop="18dp"
-        android:layout_marginStart="36dp"/>
+        android:layout_marginStart="36dp"
+        android:layout_marginEnd="20dp"/>
 
     <ImageView
-        android:id="@+id/imgRvItemLanguageColor"
+        android:id="@+id/imgRvItemLanguage"
         android:layout_width="31dp"
         android:layout_height="39dp"
         android:layout_marginStart="36dp"
@@ -39,7 +40,7 @@
         android:id="@+id/txtRvItemLanguage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@+id/imgRvItemLanguageColor"
+        app:layout_constraintStart_toStartOf="@+id/imgRvItemLanguage"
         app:layout_constraintTop_toBottomOf="@+id/txtRvItemDescription"
         android:layout_marginStart="36dp"
         android:layout_marginTop="18dp"/>
