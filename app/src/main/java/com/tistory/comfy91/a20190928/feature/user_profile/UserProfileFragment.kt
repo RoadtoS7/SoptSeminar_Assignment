@@ -40,8 +40,7 @@ class UserProfileFragment() : Fragment() {
     //따라서 onCrateView부분이 activity에서 oncreate부분과 같이 layout파일에서 뷰를 참조하는 부분이다.
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // todo argument가 무엇??
+        
         arguments?.let{
             login = it.getString(ARG_LOGIN)
         }
