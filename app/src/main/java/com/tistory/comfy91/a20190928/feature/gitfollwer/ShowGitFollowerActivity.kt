@@ -4,116 +4,85 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.tistory.comfy91.a20190928.R
-import com.tistory.comfy91.a20190928.data.GitFollowerItem
 import com.tistory.comfy91.a20190928.data.gitFollower.GetFollowerData
 import com.tistory.comfy91.a20190928.data.gitFollower.ServerFollowerDataRepository
 import com.tistory.comfy91.a20190928.feature.user_profile.UserProfileFragment
+import kotlinx.android.synthetic.main.activity_show_git_follower.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class ShowGitFollowerActivity : AppCompatActivity() {
-    val TAG = javaClass.simpleName
+    private val TAG = javaClass.simpleName
 
-    // 뷰
-    lateinit var rvShowGitFol: RecyclerView
-    lateinit var gitFollowerAdapter: GitFollowerAdapter
+    private lateinit var gitFollowerAdapter: GitFollowerAdapter // 뷰
 
+    private lateinit var id:String // data
 
-    // data
-    lateinit var id:String
-    var name: String? = null
-    var bio: String? = null
-    private lateinit var profileImageUrl: String
-
-
-    // server
-    val gitRepository = ServerFollowerDataRepository()
+    val gitFollowerRepository = ServerFollowerDataRepository() // server
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_show_git_follower)
 
-        id = intent.getStringExtra("id")!!
-        name= intent.getStringExtra("name")
-        bio = intent.getStringExtra("bio")
+        // 엘비스 연산자 ?:
+        // null operator ?. 와 달리 nullable type 변수가 null 인경우에 지정한 default 값 반환
+        id = intent.getStringExtra("id") ?: ""
 
+        // 프로필 생성
+        makeProfile()
 
-        profileImageUrl = intent.getStringExtra("profileImageUrl")!!
-        Log.d(TAG, "(id : $id) (name: $name) (bio: $bio)")
-        // 리사이클러뷰 및 어댑터 생성
-        // 연결
-        rvShowGitFol = findViewById(R.id.rvShowGitFolRepo)
-        gitFollowerAdapter =
-            GitFollowerAdapter(this)
-        rvShowGitFol.adapter = gitFollowerAdapter
-
-        // 어댑터에 배치 레이아웃 설정
-        rvShowGitFol.layoutManager = LinearLayoutManager(this);
-
-        // 팔로워 데이터를 서버로부터 얻어오기 및
-        getFollowerFromServer(id)
-
-        // fragment 선언
-        val userProfFragment = UserProfileFragment()
-        userProfFragment.userProfId=  id
-        userProfFragment.userProfName = name
-        userProfFragment.userProfBio = bio
-        userProfFragment.userProfImageUrl = profileImageUrl
-
-//        userProfFragment.imgUserProfListener = View.OnClickListener {
-//            val intent = Intent(this@ShowGitFollowerActivity, GitRepoListActivity::class.java)
-//            intent.putExtra("Id", id)
-//            intent.putExtra("name", name)
-//            intent.putExtra("bio", bio)
-//            startActivity(intent)
-//        }
-
-
-        // fragment 추가
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.layout_container, userProfFragment)
-        transaction.commit()
+        // 팔로워 리스트 생성
+        makeFollowerListView()
 
     } // end onCreate
 
-    fun convertTogitFollwerList(data: List<GetFollowerData>?): List<GitFollowerItem>{
-        var gitFollowerList = ArrayList<GitFollowerItem>()
-        if (data != null) {
-            for( x in data){
-                gitFollowerList.add(GitFollowerItem(x.imgProfile, x.login))
-            }
-        }
-        return gitFollowerList
 
+    // 상단 프로필 만듬
+    private fun makeProfile(){
+        val profileFragment = UserProfileFragment.newInstance(id)
+
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction
+            .replace(R.id.layout_container, profileFragment)
+            .commit()
     }
 
-    private fun getFollowerFromServer(id: String){
-        gitRepository.getFollowers(id).enqueue(object: Callback<List<GetFollowerData>> {
+    private fun makeFollowerListView(){
+
+        // 리사이클러뷰 및 어댑터 생성
+        // 연결
+        gitFollowerAdapter = GitFollowerAdapter(this)
+        rvShowGitFolRepo.adapter = gitFollowerAdapter
+        rvShowGitFolRepo.layoutManager = LinearLayoutManager(this)
+
+        // 팔로워 리스트 정보  서버로부터 받아옴
+        gitFollowerRepository.getFollowers(id).enqueue(object: Callback<List<GetFollowerData>>{
             override fun onFailure(call: Call<List<GetFollowerData>>, t: Throwable) {
-                Log.d(TAG, "Fail to Get Follower Data, message: ${t.message}")
+                Log.d(TAG, "Fail to Get Follower List, message : ${t.message}")
             }
 
             override fun onResponse(
                 call: Call<List<GetFollowerData>>,
                 response: Response<List<GetFollowerData>>
             ) {
-              if(response.isSuccessful){
-                Log.d(TAG, "Sucess to Get Follower data")
-                gitFollowerAdapter.data = convertTogitFollwerList(response.body())
-                gitFollowerAdapter.notifyDataSetChanged()
+                if(response.isSuccessful){
+                    val followerList = response.body()
 
-              }
+                    gitFollowerAdapter.data = followerList!!
+                    gitFollowerAdapter.notifyDataSetChanged()
+                }
                 else{
-                  Log.d(TAG, "Sucess to Get Follower data but Response is Null")
-
-              }
+                    Log.d(TAG, "Success to Get Follower List but Response is Null")
+                }
             }
-        })
-    }
 
+        })
+
+
+
+    }
 
 
 

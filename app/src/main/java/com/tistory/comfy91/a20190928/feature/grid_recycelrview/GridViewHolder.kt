@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.tistory.comfy91.a20190928.data.GridItem
+import com.tistory.comfy91.a20190928.data.supplement.GridItem
 import com.tistory.comfy91.a20190928.R
 
 class GridViewHolder(view: View): RecyclerView.ViewHolder(view){

@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.tistory.comfy91.a20190928.data.GridItem
+import com.tistory.comfy91.a20190928.data.supplement.GridItem
 import com.tistory.comfy91.a20190928.R
 
 class GridAdapter(private val context: Context) :RecyclerView.Adapter<GridViewHolder>(){

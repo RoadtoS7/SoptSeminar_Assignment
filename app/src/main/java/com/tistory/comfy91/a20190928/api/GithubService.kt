@@ -1,8 +1,8 @@
 package com.tistory.comfy91.a20190928.api
 
 import com.tistory.comfy91.a20190928.data.gitFollower.GetFollowerData
-import com.tistory.comfy91.a20190928.data.GetGitRepoData
-import com.tistory.comfy91.a20190928.data.GetUserData
+import com.tistory.comfy91.a20190928.data.gitrepo.GetGitRepoData
+import com.tistory.comfy91.a20190928.data.gitUser.GetUserData
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.Call

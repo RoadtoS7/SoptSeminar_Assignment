@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.tistory.comfy91.a20190928.R
+import com.tistory.comfy91.a20190928.data.gitrepo.GetGitRepoData
 
 class GitRepoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val ctnRvITem: View = view.findViewById(R.id.ctnRvItem)
@@ -15,9 +16,9 @@ class GitRepoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val imgRvItemLanguage: ImageView = view.findViewById(R.id.imgRvItemLanguage)
 
     // 실제 데이터가 뷰에 담기도록 한다.
-    fun bind(data: GitRepoItem){
+    fun bind(data: GetGitRepoData){
         txtRvItemName.text = data.name
-        txtRvItemDescription.text = data.desc
+        txtRvItemDescription.text = data.description
         txtRvItemLanguage.text = data.language
 
     }

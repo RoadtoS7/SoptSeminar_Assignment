@@ -1,7 +1,6 @@
 package com.tistory.comfy91.a20190928.data.gitUser
 
 import com.tistory.comfy91.a20190928.api.GithubServiceImpl
-import com.tistory.comfy91.a20190928.data.GetUserData
 import retrofit2.Call
 
 class ServerGitUserDataRepository :GitUserDataRepository{

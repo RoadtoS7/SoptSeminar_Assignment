@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.tistory.comfy91.a20190928.R
-import com.tistory.comfy91.a20190928.data.GridItem
+import com.tistory.comfy91.a20190928.data.supplement.GridItem
 
 class ShowRVGridActivity : AppCompatActivity() {
     lateinit var rvShowRVGrid: RecyclerView

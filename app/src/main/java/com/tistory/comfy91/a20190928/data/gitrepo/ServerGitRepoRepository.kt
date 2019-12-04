@@ -1,7 +1,6 @@
 package com.tistory.comfy91.a20190928.data.gitrepo
 
 import com.tistory.comfy91.a20190928.api.GithubServiceImpl
-import com.tistory.comfy91.a20190928.data.GetGitRepoData
 import retrofit2.Call
 
 class ServerGitRepoRepository : GitRepoRepository {

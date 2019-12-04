@@ -1,7 +1,6 @@
 package com.tistory.comfy91.a20190928.data.gitrepo
 
 import retrofit2.Call
-import com.tistory.comfy91.a20190928.data.GetGitRepoData
 
 
 interface GitRepoRepository{

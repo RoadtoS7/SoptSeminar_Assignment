@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.tistory.comfy91.a20190928.R
+import com.tistory.comfy91.a20190928.data.gitrepo.GetGitRepoData
 import com.tistory.comfy91.a20190928.feature.gitfollwer.ShowGitFollowerActivity
 
 // 1. 어댑터는 화면을 그려주기 위해서 conext를 멤버변수로 가진다.
@@ -14,7 +15,7 @@ import com.tistory.comfy91.a20190928.feature.gitfollwer.ShowGitFollowerActivity
 class GitRepoAdapter(private val context: Context): RecyclerView.Adapter<GitRepoViewHolder>(){
 
     // 3. Adapter는 ViewHolder로 변경할 data를 가지고 있는다.
-    var data = listOf<GitRepoItem>()
+    var data = listOf<GetGitRepoData>()
 
     // 4. Adapter는 아이템마바 ViewHolder를 만드는 방법을 정의해야한다.
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GitRepoViewHolder {
